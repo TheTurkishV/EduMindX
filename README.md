@@ -7,7 +7,7 @@
 
 ---
 
-## 🎯 Bu Projede Neler İncelenebilir? (Eğitim Konuları)
+##  Bu Projede Neler İncelenebilir? (Eğitim Konuları)
 
 Bu kaynak kod tabanı, Windows üzerinde çalışan ileri düzey masaüstü ve güvenlik yazılımlarının tasarımına dair zengin bir öğrenme materyali sunmaktadır:
 
