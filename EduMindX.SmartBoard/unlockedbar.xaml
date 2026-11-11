@@ -1,0 +1,30 @@
+<Window x:Class="EduMindX.SmartBoard.UnlockedBar" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="EduMindX Akıllı Tahta" WindowStyle="None" AllowsTransparency="True" Background="#00FFFFFF" ResizeMode="NoResize" Topmost="True" ShowInTaskbar="False" ShowActivated="False" SizeToContent="WidthAndHeight" Stylus.IsPressAndHoldEnabled="False" Stylus.IsFlicksEnabled="False" FontFamily="Segoe UI" xmlns:smartboard="clr-namespace:EduMindX.SmartBoard;assembly=EduMindX.SmartBoard">
+  <DockPanel Name="Root" LastChildFill="False">
+    <Border Name="Handle" DockPanel.Dock="Right" Width="72" Height="72" CornerRadius="36" VerticalAlignment="Center" BorderThickness="2" Cursor="SizeAll" AutomationProperties.Name="Tahta açık — dokun: Kilitle, sürükle: taşı" MouseLeftButtonDown="Handle_MouseLeftButtonDown" MouseMove="Handle_MouseMove" MouseLeftButtonUp="Handle_MouseLeftButtonUp" LostMouseCapture="Handle_LostMouseCapture">
+      <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+        <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="22" Foreground="#FFFFFFFF" HorizontalAlignment="Center" />
+        <TextBlock Name="HandleText" FontSize="15" FontWeight="SemiBold" Foreground="#FFFFFFFF" HorizontalAlignment="Center" Margin="0,2,0,0" />
+      </StackPanel>
+    </Border>
+    <Border Name="Panel" DockPanel.Dock="Right" Visibility="Collapsed" Margin="0,0,8,0" VerticalAlignment="Center" BorderThickness="1" CornerRadius="14" Padding="10">
+      <StackPanel Orientation="Horizontal">
+        <StackPanel VerticalAlignment="Center" Margin="8,0,16,0">
+          <TextBlock Name="TitleText" FontSize="17" FontWeight="SemiBold" Foreground="#FFFFFFFF" />
+          <TextBlock Name="DetailText" FontSize="14" Foreground="#94A3B8" Margin="0,2,0,0" />
+        </StackPanel>
+        <Button Name="LockButton" Width="132" Height="54" Focusable="False" AutomationProperties.Name="Kilitle" Click="LockButton_Click">
+          <Control.Template>
+            <ControlTemplate TargetType="{x:Type Button}">
+              <Border Background="#FEE100" CornerRadius="12">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                  <TextBlock FontFamily="Segoe MDL2 Assets" Text="" FontSize="20" Foreground="#111827" VerticalAlignment="Center" />
+                  <TextBlock Text="Kilitle" FontSize="20" FontWeight="SemiBold" Foreground="#111827" Margin="8,0,0,0" VerticalAlignment="Center" />
+                </StackPanel>
+              </Border>
+            </ControlTemplate>
+          </Control.Template>
+        </Button>
+      </StackPanel>
+    </Border>
+  </DockPanel>
+</Window>

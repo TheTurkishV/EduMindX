@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <EnableDefaultApplicationDefinition>false</EnableDefaultApplicationDefinition>
+    <EnableDefaultPageItems>false</EnableDefaultPageItems>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Resource Remove="announcementwindow.baml" />
+    <Resource Remove="app.baml" />
+    <Resource Remove="lockwindow.baml" />
+    <Resource Remove="unlockedbar.baml" />
+    <Resource Include="announcementwindow.baml" LogicalName="announcementwindow.baml" />
+    <Resource Include="app.baml" LogicalName="app.baml" />
+    <Resource Include="lockwindow.baml" LogicalName="lockwindow.baml" />
+    <Resource Include="unlockedbar.baml" LogicalName="unlockedbar.baml" />
+    <None Include="*.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EduMindX.SmartBoard.Core\EduMindX.SmartBoard.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="8.0.11" />
+    <PackageReference Include="QRCoder" Version="1.6.0" />
+    <PackageReference Include="System.Security.Cryptography.ProtectedData" Version="8.0.0" />
+  </ItemGroup>
+</Project>

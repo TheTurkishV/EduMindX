@@ -1,0 +1,88 @@
+<Window x:Class="EduMindX.SmartBoard.LockWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="EduMindX Akıllı Tahta" WindowStyle="None" ResizeMode="NoResize" Topmost="True" ShowInTaskbar="False" Background="#0B1220" FontFamily="Segoe UI" xmlns:smartboard="clr-namespace:EduMindX.SmartBoard;assembly=EduMindX.SmartBoard">
+  <FrameworkElement.Resources>
+    <ResourceDictionary>
+      <Style x:Key="KeypadKey" TargetType="{x:Type Button}">
+        <Setter Property="Foreground" Value="#E2E8F0" />
+        <Setter Property="FontSize" Value="30" />
+        <Setter Property="Margin" Value="5" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Template">
+          <Setter.Value>
+            <ControlTemplate TargetType="{x:Type Button}">
+              <Border Background="#1E293B" CornerRadius="12">
+                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+              </Border>
+            </ControlTemplate>
+          </Setter.Value>
+        </Setter>
+      </Style>
+      <Style x:Key="PrimaryButton" TargetType="{x:Type Button}">
+        <Setter Property="Foreground" Value="#111827" />
+        <Setter Property="FontSize" Value="24" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Template">
+          <Setter.Value>
+            <ControlTemplate TargetType="{x:Type Button}">
+              <Border Name="Face" Background="#FEE100" CornerRadius="16" Padding="24,0">
+                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+              </Border>
+              <ControlTemplate.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                  <Setter TargetName="Face" Property="UIElement.Opacity" Value="0.35" />
+                </Trigger>
+              </ControlTemplate.Triggers>
+            </ControlTemplate>
+          </Setter.Value>
+        </Setter>
+      </Style>
+      <Style x:Key="LinkButton" TargetType="{x:Type Button}">
+        <Setter Property="Foreground" Value="#94A3B8" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="Template">
+          <Setter.Value>
+            <ControlTemplate TargetType="{x:Type Button}">
+              <Border Background="#00FFFFFF" Padding="12,8">
+                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+              </Border>
+            </ControlTemplate>
+          </Setter.Value>
+        </Setter>
+      </Style>
+    </ResourceDictionary>
+  </FrameworkElement.Resources>
+  <Grid Name="Root" Background="#0B1220">
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+      <TextBlock Name="LockGlyph" FontFamily="Segoe MDL2 Assets" Text="" FontSize="64" Foreground="#FEE100" HorizontalAlignment="Center" />
+      <TextBlock Name="ClockText" FontSize="150" FontWeight="Light" Foreground="#FFFFFFFF" HorizontalAlignment="Center" Margin="0,8,0,0" />
+      <TextBlock Name="DateText" FontSize="30" Foreground="#94A3B8" HorizontalAlignment="Center" />
+      <TextBlock Name="TitleText" FontSize="40" FontWeight="SemiBold" Foreground="#FFFFFFFF" HorizontalAlignment="Center" Margin="0,48,0,0" />
+      <TextBlock Name="InfoText" FontSize="26" Foreground="#FEE100" HorizontalAlignment="Center" TextAlignment="Center" Margin="0,14,0,0" />
+      <TextBlock Name="IdentityText" FontSize="20" Foreground="#64748B" HorizontalAlignment="Center" Margin="0,28,0,0" />
+    </StackPanel>
+    <TextBlock Name="ConnectionText" FontSize="16" Foreground="#475569" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="32,0,0,28" />
+    <StackPanel Name="OpenChoices" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,40,32">
+      <Button Name="QrButton" Style="{StaticResource PrimaryButton}" Content="QR ile Aç" Width="280" Height="76" Click="QrButton_Click" />
+      <TextBlock Name="QrHint" FontSize="15" Foreground="#FCA5A5" HorizontalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" Width="280" Margin="0,8,0,0" Visibility="Collapsed" />
+      <Button Name="AdminButton" Style="{StaticResource LinkButton}" Content="İdare Girişi" HorizontalAlignment="Center" Margin="0,4,0,0" Click="AdminButton_Click" />
+    </StackPanel>
+    <Border Name="QrPanel" Visibility="Collapsed" Width="360" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,40,32" Background="#FFFFFFFF" CornerRadius="18" Padding="20">
+      <StackPanel>
+        <TextBlock Text="Telefonunuzun kamerasıyla okutun" FontSize="20" FontWeight="SemiBold" Foreground="#111827" HorizontalAlignment="Center" />
+        <Image Name="QrImage" Width="300" Height="300" Margin="0,14,0,10" RenderOptions.BitmapScalingMode="NearestNeighbor" />
+        <TextBlock Text="EduMindX'te açılan sayfada 'Tahtayı Aç'a dokunun" FontSize="15" Foreground="#475569" HorizontalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" />
+        <TextBlock Name="QrCountdown" FontSize="15" Foreground="#64748B" HorizontalAlignment="Center" Margin="0,6,0,10" />
+        <Button Style="{StaticResource PrimaryButton}" Content="Kapat" Height="52" FontSize="20" Click="QrClose_Click" />
+      </StackPanel>
+    </Border>
+    <Border Name="KeypadPanel" Visibility="Collapsed" Width="330" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,40,32" Background="#111827" BorderBrush="#334155" BorderThickness="1" CornerRadius="18" Padding="18">
+      <StackPanel>
+        <TextBlock Text="İdare kodu ya da acil şifre" FontSize="22" Foreground="#FFFFFFFF" HorizontalAlignment="Center" />
+        <StackPanel Name="Dots" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,16,0,6" />
+        <TextBlock Name="KeypadMessage" FontSize="17" Foreground="#FCA5A5" HorizontalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" MinHeight="46" />
+        <UniformGrid Name="KeyGrid" Columns="3" Rows="4" Height="336" Margin="0,4,0,0" />
+      </StackPanel>
+    </Border>
+  </Grid>
+</Window>
