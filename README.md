@@ -88,3 +88,4 @@ EduMindX, öğrenci seviyesindeki standart atlatma girişimlerine (Alt+Tab, Alt+
 
 ## 📄 Lisans
 Bu proje eğitim kurumları ve akıllı tahta yönetimi amacıyla geliştirilmiş açık kaynaklı bir referans mimaridir.
+
