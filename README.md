@@ -1,4 +1,4 @@
-# EduMindX — Akıllı Tahta Kiosk ve Güvenlik Mimarisi İncelemesi (Eğitim ve Araştırma Amaçlı)
+# EduMindX — Akıllı Tahta Kitleme Programı 
 
 > [!IMPORTANT]
 > **YASAL UYARI VE EĞİTİM BEYANI (DISCLAIMER):**  
