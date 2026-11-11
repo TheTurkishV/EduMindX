@@ -17,6 +17,7 @@ used-codes.json
 commands.json
 events.json
 bar-position.json
+github_push.bat
 
 # Visual Studio Code
 .vscode/
