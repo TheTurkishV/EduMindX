@@ -1,6 +1,6 @@
 # EduMindX Akıllı Tahta Sistemi — Kapsamlı Mimari ve İşlev İnceleme Raporu
 
-**Rapor Tarihi:** 11 Kasım 2026  
+**Rapor Tarihi:** 6 Kasım 2026  
 **İncelenen Ürün:** EduMindX Akıllı Tahta (EduMindX SmartBoard)  
 **Geliştirici:** EduMindX Project  
 **Sürüm:** 1.5.1 (.NET 8.0 Windows / WPF)  
